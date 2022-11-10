@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  if errors 
+        each error in errors 
+            p(style='color: red') #{error.msg}
+
+  form(method='POST', action="/generate-qr-code")
+    lable Height: 
+    input(name='height', type='number')
+    br
+    br
+    lable Width: 
+    input(name='width', type='number')
+    br  
+    br
+    lable Information: 
+    input(name='value', type='text')
+    br
+    br
+    input(type="submit",value='submit')
